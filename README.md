@@ -82,11 +82,11 @@ transaction; in AI Life mode a transaction that would break one is refused.
 
 ## Spec issues fixed during implementation
 
-1. **May-do vs may-grant.** Under "child actions ⊆ parent actions" the seeded Exception Controller
+1. **May-do vs may-grant.** Under "child actions ⊆ parent actions"" the seeded Exception Controller
    could not delegate `PROPOSE_REPAIR`. Grants now carry `actions` (may do) and `grant_actions` (may grant).
 2. **I08 is a precondition.** As coded in v0.4 it fails whenever any commitment is `SENT`. Duplicate
    prevention is a submission guard; the state invariant is "at most one unresolved commitment per intent".
-3. **I06 checks a living owner**, not merely a non-empty owner field.
+3. **I06 checks a living owner*, not merely a non-empty owner field.
 4. **Stale authorization is detectable.** Proposals and gate decisions record the case revision they were
    issued on; reference-data changes bump the revision and expire live proposals.
 5. **Reservation uncertainty follows the commitment**, including commitments on other obligations that
@@ -101,3 +101,9 @@ determine legal title or settlement finality, perform real trades or payments, g
 advice, or prove regulatory compliance. Metrics are simulator results, not evidence of real-world
 risk reduction. The baseline is a constructed experimental comparison, not a claim about any
 commercial agent system. Invariants are tested, not formally model-checked.
+
+## License
+
+MIT — see [LICENSE](LICENSE). The AI Life Authority Model is a research
+effort: if you build on the model, the specification or this simulator, an
+attribution and a link back to this repository are requested.
