@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Life Authority Model</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<div class="banner" role="note"><b>Research prototype.</b> Synthetic data only. No connection to production financial infrastructure.</div>
+<header class="top">
+  <a class="brand" href="#/">AI Life<span>Authority Model</span></a>
+  <nav id="nav" aria-label="Main"></nav>
+  <div class="topright">
+    <div class="seg" role="group" aria-label="Architecture mode">
+      <button data-action="arch" data-arch="AI_LIFE" id="arch-ai">AI Life</button>
+      <button data-action="arch" data-arch="BASELINE" id="arch-base">Baseline</button>
+    </div>
+    <div class="clock" id="clock" aria-live="polite"></div>
+  </div>
+</header>
+<main id="view" tabindex="-1"></main>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>
