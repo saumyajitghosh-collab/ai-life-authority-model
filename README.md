@@ -14,7 +14,7 @@ commitment or recovery responsibility disappears with it.
     python3 -m venv .venv && source .venv/bin/activate
     pip install -r requirements.txt
     python3 app.py                      # http://localhost:5000
-    python3 -m unittest -v               # 47 tests
+    python3 -m unittest -v              # 47 tests
 
 **Hostile scenario:** open *Demo Story* and press *Next step* (or *Auto run*) through 13 chapters.
 **Baseline comparison:** switch the top-right toggle to *Baseline* and run the same story.
@@ -53,8 +53,7 @@ There is no endpoint that sets state directly. Command types: `PROPOSE_REPAIR`, 
 `SET_EXTERNAL_MODE`. Failure types: `KILL_AGENT`, `KILL_CONTROLLER`, `REVOKE_AUTHORITY`,
 `EXPIRE_AUTHORITY`, `LOSE_ACKNOWLEDGEMENT`, `CHANGE_SSI`, `CREATE_CONFLICTING_PROPOSAL`,
 `ATTEMPT_QUANTITY_ESCALATION`, `ATTEMPT_DUPLICATE_SUBMISSION`, `USE_STALE_AUTHORIZATION`,
-`FAKE_SUCCESS`, `DOUBLE_RESERVE_RESOURCE`, `REMOVE_OWNER`, `DISCONNECT_STATUS_API`,
-`RECONNECT_STATUS_API`.
+`FAKE_SUCCESS`, `DOUBLE_RESERVE_RESOURCE`, `REMOVE_OWNER`, `DISCONNECT_STATUS_API`, `RECONNECT_STATUS_API`.
 
 ## Architecture
 
@@ -83,10 +82,10 @@ transaction; in AI Life mode a transaction that would break one is refused.
 
 ## Spec issues fixed during implementation
 
-1. **May-do vs may-grant.** Under \"child actions ⊆ parent actions\" the seeded Exception Controller
+1. **May-do vs may-grant.** Under "child actions ⊆ parent actions" the seeded Exception Controller
    could not delegate `PROPOSE_REPAIR`. Grants now carry `actions` (may do) and `grant_actions` (may grant).
 2. **I08 is a precondition.** As coded in v0.4 it fails whenever any commitment is `SENT`. Duplicate
-   prevention is a submission guard; the state invariant is \"at most one unresolved commitment per intent\".
+   prevention is a submission guard; the state invariant is "at most one unresolved commitment per intent".
 3. **I06 checks a living owner**, not merely a non-empty owner field.
 4. **Stale authorization is detectable.** Proposals and gate decisions record the case revision they were
    issued on; reference-data changes bump the revision and expire live proposals.
