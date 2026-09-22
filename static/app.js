@@ -3,7 +3,7 @@ const CASE = 'CASE-T12345';
 let V = null, EV = [], busy = false, auto = null;
 const ui = { authSel: null, invSel: 'I08', evSel: null, evFilter: 'all' };
 const $ = s => document.querySelector(s);
-const esc = v => String(v ?? '').replace(/[&<>]/g, c => ({ '&': '&', '<': '<', '>': '>', '"': '"' }[c]));
+const esc = v => String(v ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const fmt = n => typeof n === 'number' ? n.toLocaleString('en-US') : esc(n ?? '—');
 const hm = t => { const m = 615 + t; return String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0'); };
 
